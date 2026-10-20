@@ -14,8 +14,8 @@ function getIntersection(A, B, C, D) {
             return {
                 x: lerp(A.x, B.x, t),
                 y: lerp(A.y, B.y, t),
-                offset: t
-            }
+                offset: t,
+            };
         }
     }
 
@@ -29,7 +29,7 @@ function polysIntersect(poly1, poly2) {
                 poly1[i],
                 poly1[(i + 1) % poly1.length],
                 poly2[j],
-                poly2[(j + 1) % poly2.length]
+                poly2[(j + 1) % poly2.length],
             );
             if (touch) {
                 return true;
@@ -45,4 +45,9 @@ function getRGBA(value) {
     const G = R;
     const B = value > 0 ? 0 : 255;
     return "rgba(" + R + "," + G + "," + B + "," + alpha + ")";
+}
+
+function getRandomColor() {
+    const hue = 290 + Math.random() * 260;
+    return "hsl(" + hue + ", 100%, 60%)";
 }
